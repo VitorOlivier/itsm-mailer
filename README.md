@@ -8,7 +8,7 @@
 
 ```bash
 git clone https://github.com/VitorOlivier/itsm-mailer
-cd sef-monitor
+cd itsm-mailer
 npm i
 ```
 

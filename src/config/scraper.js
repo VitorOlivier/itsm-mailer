@@ -1,7 +1,7 @@
 module.exports = {
     httpProxy: process.env.NODE_HTTP_PROXY,
     puppeteerLaunchOptions: {
-      headless: process.env.NODE_PPT_OPTIONS_HEADLESS || false,
+      headless: process.env.NODE_PPT_OPTIONS_HEADLESS || true,
       defaultViewport: null,
       args: ["--start-maximized"],
     },

@@ -8,8 +8,8 @@ module.exports = {
     url: "https://itsm-webp.glb.besp.dsp.gbes/arsys/forms/itsm-appp.glb.besp.dsp.gbes/SHR%3ALandingConsole/Default+Administrator+View",
     urlLogin: "https://itsm-rssop.glb.besp.dsp.gbes/rsso/start",
     
-    user: process.env.NODE_ITSM_USER || "IRGUSER",
-    pwd: process.env.NODE_ITSM_PWD || "password",
+    user: process.env.NODE_ITSM_USER,
+    pwd: process.env.NODE_ITSM_PWD,
     selectorInputUser: "#user_login",
     selectorInputPwd: "#login_user_password",
     selectorBtnLogin : "#login-jsp-btn",

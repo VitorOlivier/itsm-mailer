@@ -1,6 +1,6 @@
 # itsm-mailer
 
-> ITSM Mailer is a application developer in Node.js to access ITSM site, scrape data and send e-mail. ITSM Mailer runs [Puppeteer](https://github.com/GoogleChrome/puppeteer) to scraper and [Nodemailer](https://github.com/nodemailer/nodemailer) to send e-mail.
+> ITSM Mailer is a application developer in Node.js to access ITSM site, scrape data and send e-mail. ITSM Mailer runs [Puppeteer](https://github.com/GoogleChrome/puppeteer) to scraper data and [Nodemailer](https://github.com/nodemailer/nodemailer) to send e-mail.
 
 ## Getting Started
 

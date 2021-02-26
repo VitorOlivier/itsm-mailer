@@ -1,15 +1,15 @@
-require("dotenv").config();
-const scraper = require("./scraper.js");
-
+const webServer = require("./service/server.js");
+const scheduler = require("./service/scheduler.js");
+const logger = require("./controller/logger");
 async function startup() {
-  console.log(`Starting application ${new Date()}`);
-
+  logger.info(`Starting application ${new Date()}`);
   try {
-    console.log("Initializing scraper module");
-
-    await scraper.initialize(shutdown);
+    logger.info("Initializing web server module");
+    await webServer.initialize();
+    logger.info("Initializing scheduler module");
+    await scheduler.initialize();    
   } catch (err) {
-    console.error(err);
+    logger.error(err);
     process.exit(1);
   }
 }
@@ -19,17 +19,19 @@ startup();
 async function shutdown(e) {
   let err = e;
 
-  console.log("Shutting down application ");
+  logger.info("Shutting down application ");
 
   try {
-    console.log("Closing scraper module");
-    scraper.shutdown();
+    logger.info("Closing scheduler module");
+    webServer.close();
+    logger.info("Closing web server module");
+    scheduler.close();
   } catch (e) {
-    console.error(e);
+    logger.error(e);
     err = err || e;
   }
 
-  console.log(`Exiting application ${new Date()}`);
+  logger.info(`Exiting application ${new Date()}`);
 
   if (err) {
     process.exit(1); // Non-zero failure code
@@ -39,20 +41,20 @@ async function shutdown(e) {
 }
 
 process.on("SIGTERM", async () => {
-  console.log("Received SIGTERM");
+  logger.info("Received SIGTERM");
 
   await shutdown();
 });
 
 process.on("SIGINT", async () => {
-  console.log("Received SIGINT");
+  logger.info("Received SIGINT");
 
   await shutdown();
 });
 
 process.on("uncaughtException", async (err) => {
-  console.log("Uncaught exception");
-  console.error(err);
+  logger.info("Uncaught exception");
+  logger.error(err);
 
   await shutdown(err);
 });

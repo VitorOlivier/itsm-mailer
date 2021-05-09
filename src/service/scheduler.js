@@ -1,31 +1,36 @@
 const logger = require("../controller/logger");
 const config = require("../config/scheduler.js");
 const scheduler = require("node-schedule");
-const scraper = require("../controller/scraper.js");
-const mailer = require("../controller/mailer.js");
+const axios = require('axios');
 
 const jobs = [];
 
 module.exports.initialize = async () => {
-  const action = async (fireDate) => {
+  const action1 = async (fireDate) => {
     logger.info("Start Date: " + fireDate); 
-    await scraper.initialize(); 
-    if (!scraper.dataScraped) {
-      logger.error("Erro: Dados de raspagem não disponivel.");
-    }
-    const filePath = path.join(__dirname,"..","view", "mail.ejs")
-    const tickets = scraper.dataScraped;
-    ejs.renderFile(filePath, { tickets }, async (err, html) => {
-        if(err) {
-          logger.error('Erro na leitura do arquivo. '+ err)
-        }
-        await mailer.sendMail(html)
-        logger.info("e-mail enviado com sucesso.")
-    })
-    logger.info("End Date: " + new Date());
+    axios.get(config.updateData.url)
+      .then(response => {
+        console.log(response.data);
+        logger.info("End Date: " + new Date());
+      })
+      .catch(error => {
+        logger.info(error);
+      });    
   };  
-  //Schedule
-  jobs.push(scheduler.scheduleJob(config.jobConfig, action));
+  jobs.push(scheduler.scheduleJob(config.updateData.jobConfig, action1));
+
+  const action2 = async (fireDate) => {
+    logger.info("Start Date: " + fireDate); 
+    axios.get(config.sendMail.url)
+      .then(response => {
+        console.log(response.data);
+        logger.info("End Date: " + new Date());
+      })
+      .catch(error => {
+        logger.info(error);
+      });    
+  };  
+  jobs.push(scheduler.scheduleJob(config.sendMail.jobConfig, action2));  
 };
 
 module.exports.close = async () => {

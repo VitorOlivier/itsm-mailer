@@ -1,4 +1,5 @@
 const logger = require("../controller/logger");
+const path = require('path');
 const nodemailer = require("nodemailer");
 const config = require("../config/mailer.js");
 module.exports.sendMail = async (html) => {
@@ -15,6 +16,11 @@ module.exports.sendMail = async (html) => {
       to: config.mailOptions.to, 
       subject: config.mailOptions.subject, 
       html: html, 
+      attachments: [{
+        filename: 'charts.png',
+        path: path.join(__dirname,"..","public","img","charts.png"),
+        cid: "charts@image.png"
+    }]
     }).catch(logger.error);
 
     logger.info("Message sent: %s", info.messageId);

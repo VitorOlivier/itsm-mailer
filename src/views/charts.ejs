@@ -1,0 +1,163 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <title>Tickets DSI-DIS-RG</title>
+    <link ng-href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" type="text/css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+        }
+
+        .div-graficos {
+            width: 1072.4pt;
+        }
+
+        .tab-graficos {
+            width: 100%;
+        }
+
+        .tab-graficos td {
+            width: 33%;
+            padding: 10px;
+            border: solid #70AD47 1.0pt;
+        }     
+    </style>
+</head>
+<div class="div-container">  
+    <div class="div-graficos">
+        <table class="tab-graficos">
+            <tr>
+                <td>
+                    <canvas id="GraficoTicketsPorOrigem"></canvas>
+                </td>
+                <td>
+                    <canvas id="GraficoDiasPorRecurso"></canvas>
+                </td>
+                <td>
+                    <canvas id="GraficoTicketsPorRecurso"></canvas>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+
+    const labels1 = [<% ticketsPorOrigem.forEach(t => { %> '<%= t[0] %>', <% }); %> ];
+    const labels2 = [<% IdadePorRecurso.forEach(t => { %> '<%= t[0] %>', <% }); %> ];
+    const labels3 = [<% ticketsPorRecurso.forEach(t => { %> '<%= t[0] %>', <% }); %> ];
+
+    const data1 = {
+        labels: labels1,
+        datasets: [{
+            label: 'Tickets',
+            backgroundColor: '#70AD47',
+            borderColor: '#70AD47',
+            data: [<% ticketsPorOrigem.forEach(t => { %> <%= t[1] %>, <%  }); %> ],
+    }]
+    };
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Total de Idade (Dias)',
+            backgroundColor: '#70AD47',
+            borderColor: '#70AD47',
+            data: [<% IdadePorRecurso.forEach(t => { %> <%= t[1] %>, <%  }); %> ],
+    },
+    {
+            label: 'Total de Dias Parados',
+            backgroundColor: '#ffda24',
+            borderColor: '#ffda24',
+            data: [<% diasParadoPorRecurso.forEach(t => { %> <%= t[1] %>, <%  }); %> ],
+    }]
+    };
+    const data3 = {
+        labels: labels3,
+        datasets: [{
+            label: 'Tickets',
+            backgroundColor: '#70AD47',
+            borderColor: '#70AD47',
+            data: [ <% ticketsPorRecurso.forEach(t => { %> <%= t[1] %>, <%  }); %> ],
+    }]
+    };
+
+    const config1 = {
+        type: 'bar',
+        data: data1,
+        options: {
+            indexAxis: 'y', elements: {
+                bar: {
+                    borderWidth: 1,
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Tickets por Origem'
+                }
+            }
+        }
+
+    };
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {
+            indexAxis: 'y', elements: {
+                bar: {
+                    borderWidth: 1,
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Dias - Acumulado dos Tickets'
+                }
+            }
+        }
+
+    };
+    const config3 = {
+        type: 'bar',
+        data: data3,
+        options: {
+            indexAxis: 'y', elements: {
+                bar: {
+                    borderWidth: 1,
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                },
+                title: {
+                    display: true,
+                    text: 'Tickets por Recurso'
+                }
+            }
+        }
+
+    };
+
+    var myChart = new Chart(
+        document.getElementById('GraficoTicketsPorOrigem'),
+        config1
+    );
+    var myChart2 = new Chart(
+        document.getElementById('GraficoDiasPorRecurso'),
+        config2
+    );
+    var myChart3 = new Chart(
+        document.getElementById('GraficoTicketsPorRecurso'),
+        config3
+    );
+</script>

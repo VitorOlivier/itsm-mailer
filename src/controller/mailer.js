@@ -22,7 +22,5 @@ module.exports.sendMail = async (html) => {
         cid: "charts@image.png"
     }]
     }).catch(logger.error);
-
-    logger.info("Message sent: %s", info.messageId);
   } 
 };

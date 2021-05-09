@@ -199,15 +199,17 @@ module.exports.initialize = async () => {
 };
 
 module.exports.createImageCharts = async () => {
-  const browser = await puppeteer.launch({
-    defaultViewport: {
-        width: 1430,
-        height: 255,
-        isLandscape: true
-    });  
+  const browser = await puppeteer.launch({headless: false});  
   const page = await browser.newPage();
-  await page.goto("http://localhost:3000/charts", { waitUntil: "networkidle2" });
-  await page.screenshot({path: path.join(__dirname,"..","public","img","charts.png"), clip: {x: 0, y: 0, width: 1430, height: 255} });
+  await page.setViewport({
+    width: 1600,
+    height: 800,
+    isMobile: false
+  })  
+  await page.goto("http://localhost:3000/charts", {waitUntil: 'networkidle2'});
+ 
+  const elt = await page.$('.tab-graficos');
+  await elt.screenshot({path: path.join(__dirname,"..","public","img","charts.png")});
   await browser.close();
 };  
 

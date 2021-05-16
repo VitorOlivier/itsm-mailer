@@ -14,13 +14,14 @@ module.exports.sendMail = async (html) => {
     let info = await transporter.sendMail({
       from: config.mailOptions.from, 
       to: config.mailOptions.to, 
-      subject: config.mailOptions.subject, 
+      bcc: config.mailOptions.bcc, 
+      subject: config.mailOptions.subject + (new Date()).toLocaleDateString('lt-LT'), 
       html: html, 
       attachments: [{
         filename: 'charts.png',
         path: path.join(__dirname,"..","public","img","charts.png"),
         cid: "charts@image.png"
     }]
-    }).catch(logger.error);
+    }).catch((error) => {logger.error(error)});
   } 
 };

@@ -2,9 +2,9 @@ const result = require("dotenv").config();
 module.exports = {
     httpProxy: process.env.NODE_HTTP_PROXY,
     puppeteerLaunchOptions: {
-      headless: false,
+      headless: true,
       defaultViewport: null,
-      args: ["--start-maximized"],
+      args: ["--start-maximized","--lang=pt-PT,pt"],
     },
     url: "https://itsm-webp.glb.besp.dsp.gbes/arsys/forms/itsm-appp.glb.besp.dsp.gbes/SHR%3ALandingConsole/Default+Administrator+View",
     urlLogin: "https://itsm-rssop.glb.besp.dsp.gbes/rsso/start",   

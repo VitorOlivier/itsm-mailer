@@ -114,7 +114,7 @@
 <div class="div-container">
     <div class="div-titulo">
         <p><span>Caros,</span></p>
-        <p><span>A situação atual é :</span></p>
+        <p><span>A situação dos tickets, à data de <%if(status.endDate !== undefined){%><%=status.endDate.toLocaleString('pt-PT') %><%};%> é:</span></p>
     </div>
     <div class="div-tabela">
         <table id="table-tickets">
@@ -185,7 +185,7 @@
     </div>
     <div class="div-graficos">
         <br>
-        <img src="<%=imagePath%>">                
+        <img src="<%=imagePath%>" width="1429">                
         <br>
     </div>
     <div class="div-observacoes">
@@ -219,32 +219,6 @@
             </li>
         </ul>
     </div>
-    <div class="div-rodape">
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:black;">Cumprimentos,<o:p></o:p></span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:navy;">
-                <o:p>&nbsp;</o:p>
-            </span></p>
-        <p class="MsoNormal"><b><span style="font-size:9.0pt;color:black;">Bruno Maia<o:p></o:p></span></b></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:black;">DSI - DIS - Risco e Reporting – Risco Global
-                <o:p></o:p>
-            </span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:gray;">Email: </span><span
-                style="font-size:9.0pt;color:gray;"><a href="mailto:bruno.maia@novobanco.pt"><span
-                        style="color:gray">bruno.maia@novobanco.pt</span></a></span><span
-                style="font-size:9.0pt;color:gray;">
-                <o:p></o:p>
-            </span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:gray;">Ext...: 256 414&nbsp; <o:p></o:p></span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:gray;">Tel...: 218 831 778<o:p></o:p></span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:black;">- - -<o:p></o:p></span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:black;">Neotalent<o:p></o:p></span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:gray;">Email: </span><span
-                style="font-size:9.0pt;color:gray;"><a href="mailto:bruno.gaspar.maia@novabase.pt"
-                    title="mailto:bruno.gaspar.maia@novabase.pt"><span
-                        style="color:gray">bruno.gaspar.maia@neotalent.pt</span></a></span><span
-                style="font-size:9.0pt;color:gray;">
-                <o:p></o:p>
-            </span></p>
-        <p class="MsoNormal"><span style="font-size:9.0pt;color:gray;">Tlm..: 963 127&nbsp;504<o:p></o:p></span></p>
+    <div class="div-rodape">    
     </div>
 </div>

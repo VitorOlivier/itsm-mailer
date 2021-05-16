@@ -19,73 +19,9 @@ module.exports.initialize = async () => {
 
   app.get("/preview", async (req, res) => {
     const tickets = await scraper.getData();
-    await scraper.createImageCharts();
+    const status = await scraper.status();    
     const imagePath = '.\\img\\charts.png';    
-    res.render(path.join(__dirname, "..", "views", "mail"), { tickets, imagePath });
-  });
-
-  app.get("/charts", async (req, res) => {
-    const tickets = await scraper.getData();
-
-    let countPorOrigem = {};
-    tickets.forEach((i) => { countPorOrigem[i.origemPedido] = ++countPorOrigem[i.origemPedido] || 1 });
-    const ticketsPorOrigem = Object.entries(countPorOrigem).sort((a, b) => {
-      if (a[1] > b[1]) {
-        return -1;
-      }
-      if (a[1] < b[1]) {
-        return 1;
-      }
-      return 0;
-    });
-
-    let countPorRecurso = {};
-    tickets.forEach((i) => { countPorRecurso[i.recursoAtribuido] = ++countPorRecurso[i.recursoAtribuido] || 1 });
-    const ticketsPorRecurso = Object.entries(countPorRecurso).sort((a, b) => {
-      if (a[1] > b[1]) {
-        return -1;
-      }
-      if (a[1] < b[1]) {
-        return 1;
-      }
-      return 0;
-    });
-    let sumIdadePorRecurso = {};
-    tickets.forEach((i) => {
-      if (sumIdadePorRecurso[i.recursoAtribuido]) {
-        sumIdadePorRecurso[i.recursoAtribuido] += i.idade;
-      } else {
-        sumIdadePorRecurso[i.recursoAtribuido] = i.idade;
-      }
-    });
-    const IdadePorRecurso = Object.entries(sumIdadePorRecurso).sort((a, b) => {
-      if (a[1] > b[1]) {
-        return -1;
-      }
-      if (a[1] < b[1]) {
-        return 1;
-      }
-      return 0;
-    });
-
-    let sumDiasParadoPorRecurso = {};
-    tickets.forEach((i) => {
-      if (sumDiasParadoPorRecurso[i.recursoAtribuido]) {
-        sumDiasParadoPorRecurso[i.recursoAtribuido] += i.diasParado;
-      } else {
-        sumDiasParadoPorRecurso[i.recursoAtribuido] = i.diasParado;
-      }
-    });
-    const diasParadoPorRecurso = Object.entries(sumDiasParadoPorRecurso).sort((a, b) => {
-      if (a[1] > b[1]) {
-        return -1;
-      }
-      if (a[1] < b[1]) {
-        return 1;
-      }
-      return 0;
-    });
-    res.render(path.join(__dirname, "..", "views", "charts"), { ticketsPorOrigem, ticketsPorRecurso, IdadePorRecurso, diasParadoPorRecurso });
+    res.render(path.join(__dirname, "..", "views", "mail"), { tickets, imagePath, status });
   });
 
   app.get("/update-data", async (req, res) => {
@@ -99,7 +35,7 @@ module.exports.initialize = async () => {
   });
 
   app.get("/get-data", async (req, res) => {
-    return res.send(scraper.dataScraped);
+    return res.status(200).send(await scraper.getData());
   });
 
   app.get("/send-mail", async (req, res) => {
@@ -107,9 +43,9 @@ module.exports.initialize = async () => {
     if (!tickets) {
       return res.send("Erro: Dados de raspagem não disponivel.");
     }
-    await scraper.createImageCharts();
+    const status = await scraper.status();  
     const imagePath = "cid:charts@image.png";
-    res.render(path.join(__dirname, "..", "views", "mail"), { tickets, imagePath }, async (err, html) => {
+    res.render(path.join(__dirname, "..", "views", "mail"), { tickets, imagePath, status }, async (err, html) => {
       if (err) {
         return res.send('Erro na leitura do arquivo. ' + err)
       }

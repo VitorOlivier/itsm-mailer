@@ -14,6 +14,7 @@ module.exports.sendMail = async (html) => {
     let info = await transporter.sendMail({
       from: config.mailOptions.from, 
       to: config.mailOptions.to, 
+      cc: config.mailOptions.cc, 
       bcc: config.mailOptions.bcc, 
       subject: config.mailOptions.subject + (new Date()).toLocaleDateString('lt-LT'), 
       html: html, 

@@ -1,0 +1,151 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>B2CM Variação de RWA</title>
+    <link ng-href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" type="text/css" rel="stylesheet">
+    <style>
+        .div-container {
+            margin: 15px;
+        }
+
+        .div-titulo,
+        .div-tabela,
+        .div-observacoes,
+        .div-rodape {
+            font-size: 10.0pt;
+            font-family: "Calibri", sans-serif;            
+        }
+
+        .div-observacoes li {
+            color: #808080;
+        }
+
+        .div-rodape p {
+            margin: 0;
+        }
+
+
+        table {
+            border-collapse: collapse;
+            text-indent: initial;
+            width: 1200pt;
+            border-collapse: collapse;
+            margin-top: 10pt;
+        }
+
+        td {
+            border: none;
+            border-bottom: solid #70AD47 1.0pt;
+            padding: 0;
+            font-size: 10.0pt;
+            text-align: right;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #4BACC6;
+            color: white;
+        }
+
+        thead .th1 {          
+            border: solid #8064A2 1.0pt;
+            padding: 0;
+            text-align: center;
+            background-color: #8064A2;
+            color: white;
+            font-size: 10.0pt;
+        }
+
+        thead .th2 {          
+            border: solid #70AD47 1.0pt;
+            padding: 0;
+            text-align: right;
+            background-color: #70AD47;
+            color: white;
+            font-size: 10.0pt;
+        }
+
+        #tab-rwa .td-status-gray {
+            font-size: 14.0pt;
+            font-family: Wingdings;
+            color: #808080;
+            text-align: center;
+        }
+
+        #tab-rwa .td-status-blue {
+            font-size: 14.0pt;
+            font-family: Wingdings;
+            color: #4472c4;
+            text-align: center;
+        }
+
+        #tab-rwa .td-status-brown {
+            font-size: 14.0pt;
+            font-family: Wingdings;
+            color: #c65911;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<div class="div-container">
+    <div class="div-titulo">
+    </div>
+    <div class="div-tabela">
+        <% if (Object.keys(dadosOracle).length > 0) { %>
+            <% Object.keys(dadosOracle).forEach( queryName => { %>
+                <table id="tab-rwa-<%= queryName %>">
+                    <thead>
+                        <tr> <th class="th1" colspan="100%"><%= queryName %></th> </tr>
+                        <tr>   
+                            <% dadosOracle[queryName].metaData.forEach(columnName => { %>                
+                                <th class="th2" ><%= columnName.name %></th>
+                            <% }); %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% dadosOracle[queryName].rows.forEach(row => { %>  
+                            <tr>
+                                <% dadosOracle[queryName].metaData.forEach(columnName => { %>
+                                <td>
+                                    <% if (columnName.name != 'TIMEID') { %>                                    
+                                        <%= row[columnName.name].toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' }) %>
+                                    <% } else { %>
+                                        <%= row[columnName.name] %>
+                                    <% } %>
+                                </td>
+                                <% }); %>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td > <b>Diferença Montante</b> </td>
+                            <% dadosOracle[queryName].metaData.filter(d => d.name != 'TIMEID').forEach(columnName => { %>
+                                <td>
+                                    <%= dadosOracle[queryName].difAmount[columnName.name].toLocaleString('pt-PT', { style: 'currency', currency: 'EUR' }); %>
+                                </td>
+                            <% }); %>
+                        </tr>
+                        <tr>
+                            <td > <b>% Variação</b> </td>
+                            <% dadosOracle[queryName].metaData.filter(d => d.name != 'TIMEID').forEach(columnName => { %>
+                                <td>
+                                    <%= dadosOracle[queryName].variation[columnName.name].toLocaleString('pt-PT', { style: 'percent', maximumFractionDigits: 2, minimumFractionDigits: 2}); %>
+                                </td>
+                            <% }); %>
+                        </tr>
+                    </tfoot>
+                </table>
+            <% }); %>
+        <% } %>
+    </div>
+    <div class="div-graficos">
+    </div>
+    <div class="div-observacoes">
+    </div>
+    <div class="div-rodape">    
+    </div>
+</div>

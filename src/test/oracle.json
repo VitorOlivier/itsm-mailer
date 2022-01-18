@@ -1,0 +1,282 @@
+{
+    "AGRUPADO_TOTAL": {
+        "metaData": [{
+                "name": "TIMEID"
+            }, {
+                "name": "EXPOSUREAMOUNT"
+            }, {
+                "name": "EXPDRAWNAMOUNT"
+            }, {
+                "name": "EXPUNDRAWNAMOUNT"
+            }, {
+                "name": "EXPSPECIFICPROVISION"
+            }, {
+                "name": "EXPPASTDUEAMOUNT"
+            }, {
+                "name": "EXPPASTDUEPROVISIONS"
+            }, {
+                "name": "COLLATERALAMOUNT"
+            }, {
+                "name": "GUARANTEEVALUE"
+            }, {
+                "name": "EXPECTEDLOSS"
+            }, {
+                "name": "RWA"
+            }, {
+                "name": "EAD"
+            }
+        ],
+        "rows": [{
+                "TIMEID": 202103,
+                "EXPOSUREAMOUNT": 53787354960.2709,
+                "EXPDRAWNAMOUNT": 52849489505.57,
+                "EXPUNDRAWNAMOUNT": 6594584838.02,
+                "EXPSPECIFICPROVISION": 2526330860.69,
+                "EXPPASTDUEAMOUNT": 752645231.1,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 69873938315.13,
+                "GUARANTEEVALUE": 19414669141.69,
+                "EXPECTEDLOSS": 1466190633.4999,
+                "RWA": 27459212299.69,
+                "EAD": 51383005613.0285
+            }, {
+                "TIMEID": 202104,
+                "EXPOSUREAMOUNT": 53219153071.5456,
+                "EXPDRAWNAMOUNT": 52279054917.46,
+                "EXPUNDRAWNAMOUNT": 6555304611.18,
+                "EXPSPECIFICPROVISION": 2551263604.31,
+                "EXPPASTDUEAMOUNT": 766572944.76,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 72451679183.95,
+                "GUARANTEEVALUE": 20503831241.54,
+                "EXPECTEDLOSS": 1426239233.0984,
+                "RWA": 26955694935.5,
+                "EAD": 50785954646.6408
+            }
+        ]
+    },
+    "AGRUPADO_NOT_INTRA-GROUP": {
+        "metaData": [{
+                "name": "TIMEID"
+            }, {
+                "name": "EXPOSUREAMOUNT"
+            }, {
+                "name": "EXPDRAWNAMOUNT"
+            }, {
+                "name": "EXPUNDRAWNAMOUNT"
+            }, {
+                "name": "EXPSPECIFICPROVISION"
+            }, {
+                "name": "EXPPASTDUEAMOUNT"
+            }, {
+                "name": "EXPPASTDUEPROVISIONS"
+            }, {
+                "name": "COLLATERALAMOUNT"
+            }, {
+                "name": "GUARANTEEVALUE"
+            }, {
+                "name": "EXPECTEDLOSS"
+            }, {
+                "name": "RWA"
+            }, {
+                "name": "EAD"
+            }
+        ],
+        "rows": [{
+                "TIMEID": 202103,
+                "EXPOSUREAMOUNT": 48160348969.8883,
+                "EXPDRAWNAMOUNT": 47232166748.87,
+                "EXPUNDRAWNAMOUNT": 6363887772.13,
+                "EXPSPECIFICPROVISION": 2025814812.4,
+                "EXPPASTDUEAMOUNT": 752645231.1,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 60910625277.69,
+                "GUARANTEEVALUE": 19395679376.42,
+                "EXPECTEDLOSS": 1010963266.397,
+                "RWA": 20749708535.52,
+                "EAD": 46494155869.3635
+            }, {
+                "TIMEID": 202104,
+                "EXPOSUREAMOUNT": 48366292655.93,
+                "EXPDRAWNAMOUNT": 47454595005.7,
+                "EXPUNDRAWNAMOUNT": 6326147085.35,
+                "EXPSPECIFICPROVISION": 2058437356.66,
+                "EXPPASTDUEAMOUNT": 746641229.66,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 63652859606.32,
+                "GUARANTEEVALUE": 20483641115.97,
+                "EXPECTEDLOSS": 1029308569.1966,
+                "RWA": 20964658104.09,
+                "EAD": 46673925688.7474
+            }
+        ]
+    },
+    "AGRUPADO_INTRA_GROUP": {
+        "metaData": [{
+                "name": "TIMEID"
+            }, {
+                "name": "EXPOSUREAMOUNT"
+            }, {
+                "name": "EXPDRAWNAMOUNT"
+            }, {
+                "name": "EXPUNDRAWNAMOUNT"
+            }, {
+                "name": "EXPSPECIFICPROVISION"
+            }, {
+                "name": "EXPPASTDUEAMOUNT"
+            }, {
+                "name": "EXPPASTDUEPROVISIONS"
+            }, {
+                "name": "COLLATERALAMOUNT"
+            }, {
+                "name": "GUARANTEEVALUE"
+            }, {
+                "name": "EXPECTEDLOSS"
+            }, {
+                "name": "RWA"
+            }, {
+                "name": "EAD"
+            }
+        ],
+        "rows": [{
+                "TIMEID": 202103,
+                "EXPOSUREAMOUNT": 5627005990.3826,
+                "EXPDRAWNAMOUNT": 5617322756.7,
+                "EXPUNDRAWNAMOUNT": 230697065.89,
+                "EXPSPECIFICPROVISION": 500516048.29,
+                "EXPPASTDUEAMOUNT": 0,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 8963313037.44,
+                "GUARANTEEVALUE": 18989765.27,
+                "EXPECTEDLOSS": 455227367.1029,
+                "RWA": 6709503764.17,
+                "EAD": 4888849743.665
+            }, {
+                "TIMEID": 202104,
+                "EXPOSUREAMOUNT": 4852860415.6156,
+                "EXPDRAWNAMOUNT": 4824459911.76,
+                "EXPUNDRAWNAMOUNT": 229157525.83,
+                "EXPSPECIFICPROVISION": 492826247.65,
+                "EXPPASTDUEAMOUNT": 19931715.1,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 8798819577.63,
+                "GUARANTEEVALUE": 20190125.57,
+                "EXPECTEDLOSS": 396930663.9018,
+                "RWA": 5991036831.41,
+                "EAD": 4112028957.8934
+            }
+        ]
+    },
+    "AGRUPADO_FUNDOS": {
+        "metaData": [{
+                "name": "TIMEID"
+            }, {
+                "name": "EXPOSUREAMOUNT"
+            }, {
+                "name": "EXPDRAWNAMOUNT"
+            }, {
+                "name": "EXPUNDRAWNAMOUNT"
+            }, {
+                "name": "EXPSPECIFICPROVISION"
+            }, {
+                "name": "EXPPASTDUEAMOUNT"
+            }, {
+                "name": "EXPPASTDUEPROVISIONS"
+            }, {
+                "name": "COLLATERALAMOUNT"
+            }, {
+                "name": "GUARANTEEVALUE"
+            }, {
+                "name": "EXPECTEDLOSS"
+            }, {
+                "name": "RWA"
+            }, {
+                "name": "EAD"
+            }
+        ],
+        "rows": [{
+                "TIMEID": 202103,
+                "EXPOSUREAMOUNT": 1657316126.8009,
+                "EXPDRAWNAMOUNT": 1657316129.41,
+                "EXPUNDRAWNAMOUNT": 0,
+                "EXPSPECIFICPROVISION": 0,
+                "EXPPASTDUEAMOUNT": 0,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 0,
+                "GUARANTEEVALUE": 0,
+                "EXPECTEDLOSS": 7109615.7099,
+                "RWA": 1860133005.95,
+                "EAD": 1630940614.7585
+            }, {
+                "TIMEID": 202104,
+                "EXPOSUREAMOUNT": 1653635328.4656,
+                "EXPDRAWNAMOUNT": 1653635332.2,
+                "EXPUNDRAWNAMOUNT": 0,
+                "EXPSPECIFICPROVISION": 329000,
+                "EXPPASTDUEAMOUNT": 0,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 0,
+                "GUARANTEEVALUE": 0,
+                "EXPECTEDLOSS": 11518903.5384,
+                "RWA": 2373034715.89,
+                "EAD": 1627472887.3308
+            }
+        ]
+    },
+    "AGRUPADO_NOT_FUNDOS": {
+        "metaData": [{
+                "name": "TIMEID"
+            }, {
+                "name": "EXPOSUREAMOUNT"
+            }, {
+                "name": "EXPDRAWNAMOUNT"
+            }, {
+                "name": "EXPUNDRAWNAMOUNT"
+            }, {
+                "name": "EXPSPECIFICPROVISION"
+            }, {
+                "name": "EXPPASTDUEAMOUNT"
+            }, {
+                "name": "EXPPASTDUEPROVISIONS"
+            }, {
+                "name": "COLLATERALAMOUNT"
+            }, {
+                "name": "GUARANTEEVALUE"
+            }, {
+                "name": "EXPECTEDLOSS"
+            }, {
+                "name": "RWA"
+            }, {
+                "name": "EAD"
+            }
+        ],
+        "rows": [{
+                "TIMEID": 202103,
+                "EXPOSUREAMOUNT": 52130038833.47,
+                "EXPDRAWNAMOUNT": 51192173376.16,
+                "EXPUNDRAWNAMOUNT": 6594584838.02,
+                "EXPSPECIFICPROVISION": 2526330860.69,
+                "EXPPASTDUEAMOUNT": 752645231.1,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 69873938315.13,
+                "GUARANTEEVALUE": 19414669141.69,
+                "EXPECTEDLOSS": 1459081017.79,
+                "RWA": 25599079293.74,
+                "EAD": 49752064998.27
+            }, {
+                "TIMEID": 202104,
+                "EXPOSUREAMOUNT": 51565517743.08,
+                "EXPDRAWNAMOUNT": 50625419585.26,
+                "EXPUNDRAWNAMOUNT": 6555304611.18,
+                "EXPSPECIFICPROVISION": 2550934604.31,
+                "EXPPASTDUEAMOUNT": 766572944.76,
+                "EXPPASTDUEPROVISIONS": 0,
+                "COLLATERALAMOUNT": 72451679183.95,
+                "GUARANTEEVALUE": 20503831241.54,
+                "EXPECTEDLOSS": 1414720329.56,
+                "RWA": 24582660219.61,
+                "EAD": 49158481759.31
+            }
+        ]
+    }
+}

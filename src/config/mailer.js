@@ -12,6 +12,6 @@ module.exports = {
       to: process.env.ITSM_MAILER_MAIL_OPTIONS_TO,
       cc: process.env.ITSM_MAILER_MAIL_OPTIONS_CC,
       bcc: process.env.ITSM_MAILER_MAIL_OPTIONS_BCC,
-      subject: process.env.ITSM_MAILER_MAIL_OPTIONS_SUBJECT || "Tickets Pendentes RG - " 
+      subject: process.env.ITSM_MAILER_MAIL_OPTIONS_SUBJECT || "Tickets Pendentes - " 
     },
   };
